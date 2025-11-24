@@ -52,4 +52,14 @@ Built assembler to convert mnemonics to opcodes, executed opcodes, and verified 
  <img width="322" height="558" alt="image" src="https://github.com/user-attachments/assets/5cff5988-aa3b-4f63-b86b-d104d77562b0" />
 
 ## Testbench Waveforms
-<img width="840" height="845" alt="image" src="https://github.com/user-attachments/assets/bfdde32f-9161-45f6-8596-0a4ccf242e02" />
+Waveforms
+<img width="1911" height="1011" alt="image" src="https://github.com/user-attachments/assets/07c78162-a20f-496b-a622-e77367ab3477" />
+
+General Purpose Register waveforms
+<img width="1885" height="647" alt="image" src="https://github.com/user-attachments/assets/2a4a1877-ca7c-476c-9856-6b2ddb6708b3" />
+
+I memory waveforms
+<img width="1884" height="854" alt="image" src="https://github.com/user-attachments/assets/4436401e-b998-4690-b6b9-cfb17fb1a8a0" />
+
+
+
