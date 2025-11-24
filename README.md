@@ -1,5 +1,5 @@
 # Reduced-Instruction-Set-Computer
-The design and implementation of an instruction set of a stripped-down RISC CPU.
+The design and implementation of an instruction set of a stripped-down RISC CPU. The Verilog design source files are in `sources` directory and the simulation files are in the `sim_1` directory.
 
 
 # Description
