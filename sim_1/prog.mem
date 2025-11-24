@@ -1,0 +1,45 @@
+1C400010  // 00: LDI  R1,16           ; base pointer = 16
+1C80002A  // 01: LDI  R2,42
+0C840000  // 02: ST   R2,[R1+0]       ; MEM[16] = 42
+08C40000  // 03: LD   R3,[R1+0]       ; R3 = 42
+04CC0001  // 04: ADDI R3,R3,1         ; R3 = 43   (ALUI subop=00)
+0108C800  // 05: AND  R4,R2,R3
+0148CC00  // 06: OR   R5,R2,R3
+01951000  // 07: XOR  R6,R5,R4
+01D81400  // 08: NOT  R7,R6           ; unary NOT (rs2 ignored)
+000C9800  // 09: CMP  R3,R2           ; sets CCR from (R3-R2)
+0CC40004  // 0A: ST   R3,[R1+4]
+0D040008  // 0B: ST   R4,[R1+8]
+0D44000C  // 0C: ST   R5,[R1+12]
+0D840010  // 0D: ST   R6,[R1+16]
+0DC40014  // 0E: ST   R7,[R1+20]
+
+1E03FFFF  // 0F: LDI  R8,0x3FFFF      ; sign-extends to -1
+0E040018  // 10: ST   R8,[R1+24]
+
+1E400000  // 11: LDI  R9,0
+064900FF  // 12: ANDI R9,R2,0x00FF
+06660100  // 13: ORI  R9,R9,0x0100
+066700F0  // 14: XORI R9,R9,0x00F0
+0E44001C  // 15: ST   R9,[R1+28]
+
+02CC8400  // 16: SUB  R11,R3,R2       ; expect 1
+0EC40020  // 17: ST   R11 value
+
+1C400005  // A0: LDI  R1,5
+1C800002  // A1: LDI  R2,2
+03C49C00  // A2: MUL  R15,R1,R2       
+0FC00000  // A3: ST   R15,[R0+0] 
+
+0008D800  // B0: CMP  R2,R3           ; 42-43 -> negative: LT=1, only valid if R3 still =43
+
+10F00000  // B1: BR   LT,R12          ; jump to PASS if (R2<R3) true (cond=LT, target in R12)
+
+1F40BAD0  // B2: LDI  R13,0x0BAD0     ; FAIL value (18-bit immediate limited)
+0F440024  // B3: ST   R13,[R1+36]     ; FAIL writes here
+10280000  // B4: BR   AL,R10          ; jump to loop target (set later)
+
+1F80007B  // B5: PASS: LDI R14,123
+0F840028  // B6: ST   R14,[R1+40]     ; PASS writes here
+1E800000  // B7: LDI  R10,0           ; loop target = start
+10280000  // B8: BR   AL,R10          ; loop forever
